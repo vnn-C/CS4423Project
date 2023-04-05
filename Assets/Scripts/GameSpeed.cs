@@ -32,7 +32,7 @@ public class GameSpeed : MonoBehaviour
         distanceCounter.text = distance.ToString();
         if(distance < 0){
             Debug.Log("Distance zero");
-            //Application.Quit();
+            Application.Quit();
         }
 
     }

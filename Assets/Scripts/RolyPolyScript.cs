@@ -9,7 +9,7 @@ public class RolyPolyScript : MonoBehaviour
 
     public float moveSpeed = 9;
     Rigidbody2D thingRigid;
-    
+    public float airTime = 1;
     bool canJump = false;
 
     // Start is called before the first frame update
@@ -37,6 +37,8 @@ public class RolyPolyScript : MonoBehaviour
             canJump = true;
             //Vector2 jump = new Vector2
             thingRigid.AddForce(Vector3.up * 10 * GameSpeed.rpSpeed, ForceMode2D.Impulse);
+            Wait(airTime);
+
             //thingRigid.velocity = Vector2.up * Time.fixedDeltaTime * 10000;
         }
         else if(other.tag == "reset"){
@@ -65,5 +67,9 @@ void FixedUpdate(){
     {
         //GameSpeed.momentumRP();
         
+    }
+
+    public IEnumerator Wait(float airTime){
+        yield return new WaitForSeconds(airTime);
     }
 }
