@@ -1,0 +1,6 @@
+Objective: Get the roly poly to traverse 2500 distance units until the number of distance units is 0.
+Obstacles: Red block - slows down the roly poly. Blue Block - speeds up the roly poly. Yellow Block - speeds up the roly poly and forces the roly poly to jump.
+Controls: A - move left. D - move right. E - slow down the roly poly.
+UI(Upper-Right): 
+Speed
+Remaining Distance
