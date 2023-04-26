@@ -12,12 +12,12 @@ public class RolyPolyFR : MonoBehaviour
     public GameObject scoreCounter;
     public GameObject tryAgain;
     public GameObject mainMenu;
-
+    public AudioSource drumRoll;
     // Start is called before the first frame update
     void Start()
     {
         thingRigid = GetComponent<Rigidbody2D>();  
-          
+        drumRoll.Play();
     }
 
     void showResults(){
@@ -44,6 +44,7 @@ public class RolyPolyFR : MonoBehaviour
             thingRigid.MovePosition(transform.position + (new Vector3((float)0.7 * GameSpeed.finalSpeed,(float)0.7 * GameSpeed.finalSpeed) * Time.fixedDeltaTime));
         }
         if(transform.position.y > -1.07 && GameSpeed.finalSpeed < (float)10 && upMovement){
+            drumRoll.Stop();
             upMovement = false;
             thingRigid.AddForce(Vector3.up * 5 * GameSpeed.finalSpeed, ForceMode2D.Impulse);
             thingRigid.gravityScale = 100;
@@ -53,6 +54,7 @@ public class RolyPolyFR : MonoBehaviour
 
         }
         if(transform.position.x > 9 && upMovement){
+            drumRoll.Stop();
             upMovement = false;
             ScoreCalc.ScoreCalculator();
 

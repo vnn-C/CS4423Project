@@ -15,12 +15,13 @@ public class GameSpeed : MonoBehaviour
     public static float curDistance = 0;
     public Text speedCounter;
     public Text distanceCounter;
-    
+    public float startingSpeed;
     public string sceneName;
     void Start()
     {
         origDistance = distance;
         curDistance = distance;
+        rpSpeed = startingSpeed;
     }
 
     public static void momentumRP(){
@@ -32,15 +33,21 @@ public class GameSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rpSpeed += Mathf.Log((float)1.00001);  
-        speedCounter.text = rpSpeed.ToString() + ": Speed";
-        distance -= (rpSpeed * (float)0.01);
-        distanceCounter.text = distance.ToString() + ": Distance";
-        if(distance < 0){
-            Debug.Log("Distance zero");
-            finalSpeed = rpSpeed;
-            //Application.Quit();
-            SceneManager.LoadScene(sceneName);
+        if(Time.timeScale == 1){
+            rpSpeed += Mathf.Log((float)1.0001);  
+            speedCounter.text = rpSpeed.ToString("f2") + ": Speed";
+            distance -= (rpSpeed * (float)0.01);
+            curDistance = distance;
+            distanceCounter.text = distance.ToString("f0") + ": Distance";
+            if(rpSpeed <= 1){
+                rpSpeed = (float)1.01;
+            }
+            if(distance < 0){
+                Debug.Log("Distance zero");
+                finalSpeed = rpSpeed;
+                //Application.Quit();
+                SceneManager.LoadScene(sceneName);
+            }
         }
 
     }

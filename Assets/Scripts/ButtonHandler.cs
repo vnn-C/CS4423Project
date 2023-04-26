@@ -7,12 +7,15 @@ using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject pauseLayer;
+    public GameObject menu;
 
     public void startGame(){
         SceneManager.LoadScene("LevelSelector");
     }
 
     public void loadMainMenu(){
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -29,12 +32,19 @@ public class ButtonHandler : MonoBehaviour
     }
 
     public void levelTwo(){
-        //SceneManager.LoadScene("LevelTwo");
+        SceneManager.LoadScene("LevelTwo");
     }
     
     public void levelThree(){
-        //SceneManager.LoadScene("LevelThree");
+        SceneManager.LoadScene("LevelThree");
     }
-    
+    public void resumeGame(){
+        Time.timeScale = 1;
+        pauseLayer.SetActive(false);
+        menu.SetActive(false);
+    } 
+    public void loadInstructions(){
+        SceneManager.LoadScene("GameInstructions");
+    }
     
 }

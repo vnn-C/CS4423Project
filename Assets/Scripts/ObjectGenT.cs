@@ -10,12 +10,16 @@ public class ObjectGenT : MonoBehaviour
     public int maxNumOfBooster = 1;
     public int maxNumOfStopper = 1;
     public int maxNumOfRamp = 1;
-    public static int boosterCount = 0;
-    public static int stopperCount = 0;
-    public static int rampCount = 0;
+    int rampCount = 0;
+    int boosterCount = 0;
+    int stopperCount = 0;
+    
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        
        generateThing(); 
     }
 
@@ -61,7 +65,7 @@ public class ObjectGenT : MonoBehaviour
                     stopperCount+=1;
                 }
                 else{
-                    Debug.Log("Dud\n");
+                    //Debug.Log("Dud\n");
                 }
                 
                 

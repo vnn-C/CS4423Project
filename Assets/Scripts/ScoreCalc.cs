@@ -25,6 +25,7 @@ public class ScoreCalc : MonoBehaviour
     public static bool startSpeed = false;
     public static bool end = false;
     public static int i = 0;
+    public AudioSource scoreSound;
 
     void Start()
     {
@@ -41,52 +42,60 @@ public class ScoreCalc : MonoBehaviour
         
             //boosterS.text = "Boosters hit: " + i.ToString();
             //i+=1;
+            scoreSound.Play();
             int check = incrementScore(boosterS, BoosterStruck, "Boosters hit: ");
             if(check == 0){
                 startBooster = false;
                 startStopper = true;
+                scoreSound.Stop();
             }
         }
 
         if(startStopper == true){
-            
+            scoreSound.Play();
             int check = decrementScore(stopperS, StopperStruck, "Stoppers hit: ");
             if(check == 0){
                 startStopper = false;
                 startRamp = true;
+                scoreSound.Stop();
             }
         }
 
         if(startRamp == true){
-            
+            scoreSound.Play();
             int check = incrementScore(rampS, RampStruck, "Ramps hit: ");
             if(check == 0){
                 startRamp = false;
                 startDistance = true;
+                scoreSound.Stop();
             }
         }
 
         if(startDistance == true){
-            
+            scoreSound.Play();
             int check = incrementScore(distanceBonus, distanceScore, "Distance traveled: ");
             if(check == 0){
                 startDistance = false;
                 startSpeed = true;
+                scoreSound.Stop();
             }
         }
 
         if(startSpeed == true){
-            
+            scoreSound.Play();
             int check = incrementScore(speedBonus, speedScore, "Final speed: ");
             if(check == 0){
                 startSpeed = false;
                 end = true;
+                scoreSound.Stop();
             }
         }
         if(end == true){
-            int check = incrementScore(totalScore, finalScore, "Total score: ");
+            scoreSound.Play();
+            int check = incrementScore(totalScore, finalScore, "Final score: ");
             if(check == 0){
                 end = false;
+                scoreSound.Stop();
             }
         }
 
@@ -152,7 +161,7 @@ public class ScoreCalc : MonoBehaviour
         StopperStruck = -200 * RolyPolyScript.stopperHit;
         RampStruck = 250 * RolyPolyScript.rampHit;
         distanceScore = 10 * (int)Mathf.Ceil(GameSpeed.origDistance) - (int)Mathf.Ceil(GameSpeed.curDistance);
-        speedScore = 200 * (int)Mathf.Ceil(GameSpeed.finalSpeed);
+        speedScore = 500 * (int)Mathf.Ceil(GameSpeed.finalSpeed);
         finalScore = BoosterStruck + StopperStruck + RampStruck + distanceScore + speedScore;
         Debug.Log(BoosterStruck + StopperStruck + RampStruck + distanceScore + speedScore);
 

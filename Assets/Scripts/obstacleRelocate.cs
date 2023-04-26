@@ -20,7 +20,7 @@ public class obstacleRelocate : MonoBehaviour
 
        
         if(other.tag == "booster" || other.tag == "stopper" || other.tag == "ramp"){
-            Vector2 newPos = new Vector2(Random.Range(-6f,10f), -6);
+            Vector2 newPos = new Vector2(Random.Range(-8f,10f), -8);
             other.gameObject.transform.position = newPos;
         }
         //Destroy(other.gameObject);

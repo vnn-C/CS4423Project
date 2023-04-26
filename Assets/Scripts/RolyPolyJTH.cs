@@ -12,7 +12,8 @@ public class RolyPolyJTH : MonoBehaviour
     public GameObject tryAgain;
     public GameObject mainMenu;
     public bool loadResult = true;
-
+    public AudioSource jthAudio;
+    public GameObject star;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,8 @@ public class RolyPolyJTH : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
         }
         else if(loadResult){
+            jthAudio.Play();
+            GameSpeed.finalSpeed = 0;
             ScoreCalc.ScoreCalculator();
             loadResult = false;
             Invoke("showResults",1);

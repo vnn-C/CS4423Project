@@ -19,6 +19,6 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        obstacleRigid.MovePosition(transform.position + (new Vector3(-GameSpeed.rpSpeed,GameSpeed.rpSpeed) * Time.fixedDeltaTime));       
+        obstacleRigid.MovePosition(transform.position + (new Vector3(-GameSpeed.rpSpeed,GameSpeed.rpSpeed) * (float)0.4 * Time.fixedDeltaTime));       
     }
 }

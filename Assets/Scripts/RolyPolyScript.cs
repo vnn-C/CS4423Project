@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class RolyPolyScript : MonoBehaviour
 {
 
+    public float jumpVal = 1.5f;
+    public float boostVal = 1.2f;
+    public float stopVal = 0.5f;
     public float moveSpeed = 9;
     Rigidbody2D thingRigid;
     public float airTime = 1;
@@ -16,40 +19,54 @@ public class RolyPolyScript : MonoBehaviour
     public static int stopperHit = 0;
     public static int rampHit = 0;
     public float rampGameOverSpeed = 100;
+    public AudioClip jumpAudio;
+    public AudioClip boostAudio;
+    public AudioClip stopAudio;
+    AudioSource rpAudio;
 
     // Start is called before the first frame update
     void Start()
     {
         thingRigid = GetComponent<Rigidbody2D>();
+        rpAudio = GetComponent<AudioSource>();
     }
 
     
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "booster"){
+            rpAudio.clip = boostAudio;
+            rpAudio.Play();
             Debug.Log("Boost");
-            GameSpeed.rpSpeed *= (float)1.2;
+            GameSpeed.rpSpeed *= boostVal;
             boosterHit += 1;
         }
         else if(other.tag == "stopper"){
+            rpAudio.clip = stopAudio;
+            rpAudio.Play();
             Debug.Log("Stop");
             if(GameSpeed.rpSpeed > 1){
-                GameSpeed.rpSpeed *= (float)0.5;
+                GameSpeed.rpSpeed *= stopVal;
                 stopperHit += 1;
             }
         }
         else if(other.tag == "ramp"){
-            GameSpeed.rpSpeed *= (float)1.5;
+            rpAudio.clip = jumpAudio;
+            rpAudio.Play();
+            GameSpeed.rpSpeed *= jumpVal;
             thingRigid.gravityScale = 200;
             canJump = true;
             rampHit += 1;
-            thingRigid.AddForce(Vector3.up * 18 * GameSpeed.rpSpeed, ForceMode2D.Impulse);
+            thingRigid.AddForce(Vector3.up * 15 * GameSpeed.rpSpeed, ForceMode2D.Impulse);
+            
+
             //Wait(airTime);
 
                
         }
         else if(other.tag == "reset"){
             thingRigid.gravityScale = 0;
+            thingRigid.velocity = new Vector3(0, 0, Time.fixedDeltaTime);
         }
 
     }
@@ -73,7 +90,7 @@ void FixedUpdate(){
             }
         }
         if(Input.GetKey(KeyCode.E) && GameSpeed.rpSpeed > 0){
-            GameSpeed.rpSpeed-=(float)0.01;
+            GameSpeed.rpSpeed-=(float)0.5;
         }
         
     }
@@ -83,6 +100,7 @@ void FixedUpdate(){
         if(transform.position.y > 11 && GameSpeed.rpSpeed > rampGameOverSpeed){
             Debug.Log("Jumped too high");
             GameSpeed.finalSpeed = GameSpeed.rpSpeed;
+            
             SceneManager.LoadScene(sceneName);
         }
         if(transform.position.y > 11){
