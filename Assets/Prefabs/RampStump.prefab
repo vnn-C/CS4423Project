@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9221297658416808249}
   - component: {fileID: -7382111338532410075}
   - component: {fileID: -5569971330612929514}
+  - component: {fileID: 2221865560054491900}
   m_Layer: 0
   m_Name: RampStump
   m_TagString: ramp
@@ -245,3 +246,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2221865560054491900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740106006295412749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.16, y: -0.16, z: 0}
+  - {x: -0.10439059, y: 0.0041525946, z: 0}
+  - {x: -0.058773722, y: 0.11205071, z: 0}
+  - {x: 0.03412958, y: 0.1746389, z: 0}
+  - {x: 0.112050734, y: 0.11205071, z: 0}
+  - {x: 0.114045106, y: -0.0065028085, z: 0}
+  - {x: 0.16, y: -0.16, z: 0}
+  m_ShapePathHash: 415990785
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -8844

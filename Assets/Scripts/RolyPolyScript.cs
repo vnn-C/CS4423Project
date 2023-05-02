@@ -13,7 +13,7 @@ public class RolyPolyScript : MonoBehaviour
     public float moveSpeed = 9;
     Rigidbody2D thingRigid;
     public float airTime = 1;
-    bool canJump = false;
+    int canJump = 0;
     public string sceneName;
     public static int boosterHit = 0;
     public static int stopperHit = 0;
@@ -55,7 +55,7 @@ public class RolyPolyScript : MonoBehaviour
             rpAudio.Play();
             GameSpeed.rpSpeed *= jumpVal;
             thingRigid.gravityScale = 200;
-            canJump = true;
+            canJump += 1;
             rampHit += 1;
             thingRigid.AddForce(Vector3.up * 15 * GameSpeed.rpSpeed, ForceMode2D.Impulse);
             
@@ -73,8 +73,8 @@ public class RolyPolyScript : MonoBehaviour
 
 
 void FixedUpdate(){
-        if(canJump){
-            canJump = false;
+        if(canJump > 0){
+            canJump = 0;
             
         }
         else{

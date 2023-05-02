@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8590057631894507575}
   - component: {fileID: -7591619369152637843}
   - component: {fileID: 260745622268036091}
+  - component: {fileID: 163956247803983134}
   m_Layer: 0
   m_Name: StopperTombstone
   m_TagString: stopper
@@ -245,3 +246,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &163956247803983134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352305510205065864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.16, y: -0.16, z: 0}
+  - {x: -0.1683658, y: 0.015386105, z: 0}
+  - {x: -0.12803395, y: 0.10672298, z: 0}
+  - {x: 0.012775978, y: 0.1698893, z: 0}
+  - {x: 0.117378555, y: 0.10139537, z: 0}
+  - {x: 0.17260687, y: 0.010058403, z: 0}
+  - {x: 0.16, y: -0.16, z: 0}
+  m_ShapePathHash: 46778304
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -6542

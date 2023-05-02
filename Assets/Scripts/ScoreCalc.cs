@@ -18,12 +18,12 @@ public class ScoreCalc : MonoBehaviour
     public Text distanceBonus;
     public Text speedBonus;
     public Text totalScore;
-    public static bool startBooster = false;
-    public static bool startStopper = false;
-    public static bool startRamp = false;
-    public static bool startDistance = false;
-    public static bool startSpeed = false;
-    public static bool end = false;
+    static bool startBooster = false;
+    static bool startStopper = false;
+    static bool startRamp = false;
+    static bool startDistance = false;
+    static bool startSpeed = false;
+    static bool end = false;
     public static int i = 0;
     public AudioSource scoreSound;
 
@@ -111,12 +111,7 @@ public class ScoreCalc : MonoBehaviour
         }
         else if(s > 0 && i < s){
             t.text = f + i.ToString();
-            if(s < 10000){
-                i+=10;
-            }
-            else{
-                i+=100;
-            }
+            i+=100;
             
             
         }
@@ -140,12 +135,7 @@ public class ScoreCalc : MonoBehaviour
         }
         else if(i > s){
             t.text = f + i.ToString();
-            if(s > -10000){
-                i-=10;
-            }
-            else{
-                i-=100;
-            }
+            i-=100;
         }
         else{
             t.text = f + i.ToString();

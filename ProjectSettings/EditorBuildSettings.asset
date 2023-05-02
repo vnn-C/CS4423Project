@@ -9,14 +9,35 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c9e8a7f6224223645beb4f2834cd6f64
   - enabled: 1
+    path: Assets/Scenes/GameInstructions.unity
+    guid: a843f659705f00e4dac59d851839e5e0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/LevelTwo.unity
+    guid: 15f62587e52b1684c9def94dbea7e521
+  - enabled: 1
+    path: Assets/Scenes/LevelThree.unity
+    guid: 869e53dc09df277458c0d2880f0c2a1c
   - enabled: 1
     path: Assets/Scenes/JumpedTooHigh.unity
     guid: 14122638b9a421e45a020b112380d44c
   - enabled: 1
+    path: Assets/Scenes/Lv2JumpedTooHigh.unity
+    guid: 6a4a38702ca548a48870038ddcde7ec7
+  - enabled: 1
+    path: Assets/Scenes/Lv3JumpedTooHigh.unity
+    guid: 1ced533f838b277459b46115fdf0b92a
+  - enabled: 1
     path: Assets/Scenes/FinalRamp.unity
     guid: 30c53da6280fa40478d74e55583cd12f
+  - enabled: 1
+    path: Assets/Scenes/Lv2FinalRamp.unity
+    guid: ab258b53f1134c245979b0d76a353bfa
+  - enabled: 1
+    path: Assets/Scenes/Lv3FinalRamp.unity
+    guid: 32d3900107c3a23429f70d3c86a13d05
   - enabled: 1
     path: Assets/Scenes/LevelSelector.unity
     guid: 82f852a6a1885f6418486498b6dd7ad2
